@@ -60,4 +60,5 @@ class DefaultFirebaseOptions {
     authDomain: 'betting-dashboard-1917a.firebaseapp.com',
     storageBucket: 'betting-dashboard-1917a.appspot.com',
   );
+
 }
