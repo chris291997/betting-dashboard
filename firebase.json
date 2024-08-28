@@ -1,0 +1,24 @@
+{
+  "hosting": {
+    "public": "build/web",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "flutter": {
+    "platforms": {
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "betting-dashboard-1917a",
+          "configurations": {
+            "web": "1:973118447356:web:63f8b4a1cabf6dbba80179"
+          }
+        }
+      }
+    }
+  }
+}
