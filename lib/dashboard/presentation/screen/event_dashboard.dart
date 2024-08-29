@@ -2,8 +2,12 @@ import 'dart:async';
 
 import 'package:dashboard/dashboard/data/di/dashboard_service_locator.dart';
 import 'package:dashboard/dashboard/presentation/bloc/dashboard_bloc.dart';
-import 'package:dashboard/dashboard/presentation/component/dashboard_side_bar.dart';
+import 'package:dashboard/dashboard/presentation/component/event_details.dart';
+import 'package:dashboard/dashboard/presentation/component/fight_list_items.dart';
+import 'package:dashboard/dashboard/presentation/component/fight_number.dart';
 import 'package:dashboard/dashboard/presentation/component/fighter_wala_and_meron.dart';
+import 'package:dashboard/dashboard/presentation/component/legend.dart';
+import 'package:dashboard/dashboard/presentation/component/open_or_closed_bet.dart';
 import 'package:dashboard/dashboard/presentation/screen/event_selection_screen.dart';
 import 'package:dashboard/event/data/di/event_service_locator.dart';
 import 'package:dashboard/event/presentation/bloc/event_list_bloc.dart';
@@ -90,10 +94,38 @@ class _Dashboard extends HookWidget {
             body: Stack(
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    DashboardSideBar(),
-                    FighterWalaAndMeron(),
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          SizedBox(
+                            height: 50,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                FightNumber(),
+                                OpenOrClosedBet(),
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            child: FighterWalaAndMeron(),
+                          ),
+                          EventDetails(),
+                        ],
+                      ),
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: FightListItems(),
+                        ),
+                        Legend(),
+                      ],
+                    ),
                   ],
                 ),
                 _TimerWidget(),

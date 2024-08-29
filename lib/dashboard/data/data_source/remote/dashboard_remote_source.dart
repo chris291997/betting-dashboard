@@ -12,10 +12,14 @@ class DashboardRemoteSource {
   Future<List<DashboardOutput>> getRecentConcludedFight(
       {required String eventId}) async {
     final response = await _manager.get(
-      '$dashboardPath/$eventId$recentConcludedFight',
+      '$dashboardPath/$eventId$dashboardPath',
     );
 
-    final List<dynamic> data = response.data as List<dynamic>;
+    final data = response.data['recentAndCurrentFight'] as List<dynamic>?;
+
+    if (data == null || data.isEmpty) {
+      return [];
+    }
 
     return data
         .map((json) => DashboardOutput.fromJson(json as Map<String, dynamic>))

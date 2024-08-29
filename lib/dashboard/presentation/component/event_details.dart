@@ -15,24 +15,14 @@ class EventDetails extends StatelessWidget {
       },
       builder: (context, event) {
         return Container(
+          height: 50,
           width: double.infinity,
-          height: 175,
           color: const Color(0xFF3A5374),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                event.eventName,
-                style: context.textStyle.headline2,
-                overflow: TextOverflow.ellipsis,
-              ),
-              const SizedBox(height: 30),
-              Text(
-                event.location,
-                style: context.textStyle.headline5,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ],
+          child: Center(
+            child: Text(
+              '${event.eventName}, ${event.location}',
+              style: context.textStyle.headline5,
+            ),
           ),
         );
       },

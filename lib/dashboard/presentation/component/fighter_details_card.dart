@@ -8,10 +8,12 @@ class FighterDetailsCard extends StatelessWidget {
     super.key,
     required this.fighterType,
     required this.totalBet,
+    required this.betMultiplier,
     this.fightResult = FightResult.draw,
   });
 
   final double totalBet;
+  final double betMultiplier;
   final FighterType fighterType;
   final FightResult fightResult;
 
@@ -22,29 +24,24 @@ class FighterDetailsCard extends StatelessWidget {
         color: fighterType.isMeron
             ? const Color(0xFF32CD32)
             : const Color(0xFFFF4500),
-        constraints: const BoxConstraints(
-          maxHeight: 800,
-        ),
-        child: Row(
+        // constraints: const BoxConstraints(
+        //   maxHeight: 800,
+        // ),
+        child: Column(
           children: [
-            if (fighterType.isWala)
-              _Avatar(
-                fighterType: fighterType,
-                fightResult: fightResult,
-              ),
+            _Avatar(
+              fighterType: fighterType,
+              fightResult: fightResult,
+            ),
             Expanded(
               child: Center(
                 child: _Details(
                   totalBet: totalBet,
                   fighterType: fighterType,
+                  betMultiplier: betMultiplier,
                 ),
               ),
             ),
-            if (fighterType.isMeron)
-              _Avatar(
-                fighterType: fighterType,
-                fightResult: fightResult,
-              ),
           ],
         ),
       ),
@@ -63,49 +60,47 @@ class _Avatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      return Padding(
-        padding: const EdgeInsets.all(30.0),
-        child: Container(
-          width: constraints.maxHeight,
-          height: constraints.maxHeight,
-          padding: const EdgeInsets.all(30),
-          decoration: BoxDecoration(
-            color: fighterType.isMeron
-                ? const Color(0xFF98FB98)
-                : const Color(0xFFFFA07A),
-            borderRadius: BorderRadius.circular(30), // Rounded corners
-          ),
-          child: Stack(
-            children: [
-              AnimatedOpacity(
-                duration: const Duration(milliseconds: 500),
-                opacity: fightResult.isOngoing ? 1.0 : 0.4,
-                child: SvgPicture.asset(
-                  fighterType.icon,
-                  fit: BoxFit.contain,
-                ),
-              ),
-              if (!fightResult.isOngoing)
-                Center(
-                  child: ColorFiltered(
-                    colorFilter: const ColorFilter.mode(
-                      Colors.black,
-                      BlendMode.srcIn,
-                    ),
-                    child: Image.asset(
-                      fightResult.iconUrl,
-                      fit: BoxFit.contain,
-                      width: fightResult.isDraw ? 300 : 400,
-                      height: fightResult.isDraw ? 150 : 200,
-                    ),
-                  ),
-                )
-            ],
-          ),
+    return Padding(
+      padding: const EdgeInsets.all(30.0),
+      child: Container(
+        width: 400,
+        height: 400,
+        padding: const EdgeInsets.all(30),
+        decoration: BoxDecoration(
+          color: fighterType.isMeron
+              ? const Color(0xFF98FB98)
+              : const Color(0xFFFFA07A),
+          borderRadius: BorderRadius.circular(30), // Rounded corners
         ),
-      );
-    });
+        child: Stack(
+          children: [
+            AnimatedOpacity(
+              duration: const Duration(milliseconds: 500),
+              opacity: fightResult.isOngoing ? 1.0 : 0.4,
+              child: SvgPicture.asset(
+                fighterType.icon,
+                fit: BoxFit.contain,
+              ),
+            ),
+            if (!fightResult.isOngoing)
+              Center(
+                child: ColorFiltered(
+                  colorFilter: const ColorFilter.mode(
+                    Colors.black,
+                    BlendMode.srcIn,
+                  ),
+                  child: Image.asset(
+                    fightResult.iconUrl,
+                    fit: BoxFit.contain,
+                    width: fightResult.isDraw ? 300 : 400,
+                    height: fightResult.isDraw ? 150 : 200,
+                  ),
+                ),
+              )
+          ],
+        ),
+      ),
+    );
   }
 }
 
@@ -113,10 +108,12 @@ class _Details extends StatelessWidget {
   const _Details({
     required this.fighterType,
     required this.totalBet,
+    required this.betMultiplier,
   });
 
   final FighterType fighterType;
   final double totalBet;
+  final double betMultiplier;
 
   @override
   Widget build(BuildContext context) {
@@ -125,11 +122,15 @@ class _Details extends StatelessWidget {
       children: [
         Text(
           fighterType.name.toUpperCase(),
-          style: context.textStyle.headline1,
+          style: context.textStyle.headline2,
         ),
         Text(
           totalBet.toString(),
-          style: context.textStyle.headline2,
+          style: context.textStyle.headline3,
+        ),
+        Text(
+          betMultiplier.toStringAsFixed(2),
+          style: context.textStyle.headline4,
         ),
       ],
     );

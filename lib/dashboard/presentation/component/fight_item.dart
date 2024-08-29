@@ -51,7 +51,7 @@ enum ButtonColorBasedOnWinner {
       case ButtonColorBasedOnWinner.draw:
         return Color.lerp(Colors.green, Colors.red, 0.5) ?? Colors.black;
       case ButtonColorBasedOnWinner.ongoing:
-        return AppColors.dark().surface;
+        return const Color(0xFF3A5374);
     }
   }
 }

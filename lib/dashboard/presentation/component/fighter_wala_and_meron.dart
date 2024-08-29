@@ -19,46 +19,50 @@ class FighterWalaAndMeron extends StatelessWidget {
         final winner = state.selectedOutput.winner;
         final isDraw = state.selectedOutput.isDraw;
 
-        return Expanded(
-          child: Center(
-            child: Stack(
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: FighterDetailsCard(
-                        fighterType: FighterType.wala,
-                        totalBet: selectedOutput.totalWalaBet,
-                        fightResult: isDraw
-                            ? FightResult.draw
-                            : winner == 'Wala'
-                                ? FightResult.winner
-                                : FightResult.loser,
-                      ),
+        return Center(
+          child: Stack(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: FighterDetailsCard(
+                      fighterType: FighterType.wala,
+                      totalBet: selectedOutput.totalWalaBet,
+                      betMultiplier: selectedOutput.betMultiplier,
+                      fightResult: isDraw
+                          ? FightResult.draw
+                          : winner == 'Wala'
+                              ? FightResult.winner
+                              : winner == 'Meron'
+                                  ? FightResult.loser
+                                  : FightResult.ongoing,
                     ),
-                    Expanded(
-                      child: FighterDetailsCard(
-                        fighterType: FighterType.meron,
-                        totalBet: selectedOutput.totalMeronBet,
-                        fightResult: isDraw
-                            ? FightResult.draw
-                            : winner == 'Meron'
-                                ? FightResult.winner
-                                : FightResult.loser,
-                      ),
-                    ),
-                  ],
-                ),
-                Center(
-                  child: Image.asset(
-                    _vsIcon,
-                    fit: BoxFit.contain,
-                    height: 100,
                   ),
-                )
-              ],
-            ),
+                  Expanded(
+                    child: FighterDetailsCard(
+                      fighterType: FighterType.meron,
+                      totalBet: selectedOutput.totalMeronBet,
+                      betMultiplier: selectedOutput.betMultiplier,
+                      fightResult: isDraw
+                          ? FightResult.draw
+                          : winner == 'Meron'
+                              ? FightResult.winner
+                              : winner == 'Wala'
+                                  ? FightResult.loser
+                                  : FightResult.ongoing,
+                    ),
+                  ),
+                ],
+              ),
+              Center(
+                child: Image.asset(
+                  _vsIcon,
+                  fit: BoxFit.contain,
+                  height: 100,
+                ),
+              )
+            ],
           ),
         );
       },

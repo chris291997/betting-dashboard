@@ -13,9 +13,14 @@ class OpenOrClosedBet extends StatelessWidget {
         return state.selectedOutput.bettingStatus;
       },
       builder: (context, status) {
-        return Text(
-          status,
-          style: context.textStyle.headline5,
+        return SizedBox(
+          width: 200,
+          child: Center(
+            child: Text(
+              status,
+              style: context.textStyle.headline5,
+            ),
+          ),
         );
       },
     );

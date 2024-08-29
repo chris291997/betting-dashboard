@@ -36,9 +36,12 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
       final outputs =
           await _repository.getRecentConcludedFight(eventId: _eventId);
 
-      final selectedOutputId = state.selectedOutputId.isEmpty
-          ? outputs.first.id
-          : state.selectedOutputId;
+      final selectedId = state.selectedOutputId;
+
+      final selectedOutputId =
+          selectedId.isEmpty || !outputs.any((e) => e.id == selectedId)
+              ? outputs.last.id
+              : state.selectedOutputId;
 
       emit(state.copyWith(
         status: DashboardStatus.loaded,
