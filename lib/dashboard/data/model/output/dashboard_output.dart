@@ -17,7 +17,8 @@ class DashboardOutput extends Equatable {
     required this.eventName,
     required this.eventDate,
     required this.eventLocation,
-    required this.betMultiplier,
+    required this.walaMultiplier,
+    required this.meronMultiplier,
   });
 
   final String id;
@@ -35,7 +36,8 @@ class DashboardOutput extends Equatable {
   final String eventName;
   final String eventDate;
   final String eventLocation;
-  final double betMultiplier;
+  final double walaMultiplier;
+  final double meronMultiplier;
 
   static const empty = DashboardOutput(
     id: '',
@@ -53,7 +55,8 @@ class DashboardOutput extends Equatable {
     eventName: '',
     eventDate: '',
     eventLocation: '',
-    betMultiplier: 0.00,
+    walaMultiplier: 0.00,
+    meronMultiplier: 0.00,
   );
 
   bool get isEmpty => this == DashboardOutput.empty;
@@ -75,7 +78,8 @@ class DashboardOutput extends Equatable {
     String? eventName,
     String? eventDate,
     String? eventLocation,
-    double? betMultiplier,
+    double? walaMultiplier,
+    double? meronMultiplier,
   }) {
     return DashboardOutput(
       id: id ?? this.id,
@@ -93,7 +97,8 @@ class DashboardOutput extends Equatable {
       eventName: eventName ?? this.eventName,
       eventDate: eventDate ?? this.eventDate,
       eventLocation: eventLocation ?? this.eventLocation,
-      betMultiplier: betMultiplier ?? this.betMultiplier,
+      walaMultiplier: walaMultiplier ?? this.walaMultiplier,
+      meronMultiplier: meronMultiplier ?? this.meronMultiplier,
     );
   }
 
@@ -114,7 +119,8 @@ class DashboardOutput extends Equatable {
       eventName: json.parseString('eventName'),
       eventDate: json.parseString('eventDate'),
       eventLocation: json.parseString('eventLocation'),
-      betMultiplier: 0.00,
+      walaMultiplier: json.parseDouble('walaMultiplier'),
+      meronMultiplier: json.parseDouble('meronMultiplier'),
     );
   }
 
@@ -135,6 +141,7 @@ class DashboardOutput extends Equatable {
         eventName,
         eventDate,
         eventLocation,
-        betMultiplier,
+        walaMultiplier,
+        meronMultiplier,
       ];
 }

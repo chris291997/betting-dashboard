@@ -29,7 +29,7 @@ class FighterWalaAndMeron extends StatelessWidget {
                     child: FighterDetailsCard(
                       fighterType: FighterType.wala,
                       totalBet: selectedOutput.totalWalaBet,
-                      betMultiplier: selectedOutput.betMultiplier,
+                      betMultiplier: selectedOutput.walaMultiplier,
                       fightResult: isDraw
                           ? FightResult.draw
                           : winner == 'Wala'
@@ -43,7 +43,7 @@ class FighterWalaAndMeron extends StatelessWidget {
                     child: FighterDetailsCard(
                       fighterType: FighterType.meron,
                       totalBet: selectedOutput.totalMeronBet,
-                      betMultiplier: selectedOutput.betMultiplier,
+                      betMultiplier: selectedOutput.meronMultiplier,
                       fightResult: isDraw
                           ? FightResult.draw
                           : winner == 'Meron'
