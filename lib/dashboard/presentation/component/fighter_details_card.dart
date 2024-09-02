@@ -125,7 +125,7 @@ class _Details extends StatelessWidget {
           style: context.textStyle.headline2,
         ),
         Text(
-          totalBet.toString(),
+          '₱ ${totalBet.toString()}',
           style: context.textStyle.headline3,
         ),
         Text(
