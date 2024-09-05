@@ -146,7 +146,7 @@ class _TimerWidget extends HookWidget {
     useEffect(
       () {
         // Create a timer that triggers every minute
-        final timer = Timer.periodic(const Duration(minutes: 1), (timer) {
+        final timer = Timer.periodic(const Duration(seconds: 5), (timer) {
           context.read<DashboardBloc>().add(DashboardFightFetched());
         });
 

@@ -49,7 +49,7 @@ enum ButtonColorBasedOnWinner {
       case ButtonColorBasedOnWinner.meron:
         return const Color(0xFF32CD32);
       case ButtonColorBasedOnWinner.draw:
-        return Color.lerp(Colors.green, Colors.red, 0.5) ?? Colors.black;
+        return const Color(0xFF808080);
       case ButtonColorBasedOnWinner.ongoing:
         return const Color(0xFF3A5374);
     }
