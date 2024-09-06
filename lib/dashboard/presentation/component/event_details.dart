@@ -1,4 +1,5 @@
 import 'package:dashboard/common/theme/theme.dart';
+import 'package:dashboard/dashboard/presentation/component/fight_item.dart';
 import 'package:dashboard/event/data/di/event_service_locator.dart';
 import 'package:dashboard/event/presentation/bloc/event_list_bloc.dart';
 import 'package:flutter/material.dart';
@@ -15,13 +16,13 @@ class EventDetails extends StatelessWidget {
       },
       builder: (context, event) {
         return Container(
-          height: 50,
+          height: 80,
           width: double.infinity,
-          color: const Color(0xFF3A5374),
+          color: ButtonColorBasedOnWinner.ongoing.mainColor,
           child: Center(
             child: Text(
               '${event.eventName}, ${event.location}',
-              style: context.textStyle.headline5,
+              style: context.textStyle.headline4,
             ),
           ),
         );

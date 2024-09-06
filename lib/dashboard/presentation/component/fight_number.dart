@@ -15,7 +15,7 @@ class FightNumber extends StatelessWidget {
       builder: (context, fightNumber) {
         return Container(
           width: 300,
-          height: 50,
+          height: 80,
           color: context.colors.primary,
           child: Center(
             child: Text(

@@ -41,6 +41,7 @@ dependencies:
   qr_code_scanner: ^1.0.1
   print_bluetooth_thermal: ^1.1.1
   super_sliver_list: ^0.4.1
+  auto_size_text: ^3.0.0
 
 dev_dependencies:
   flutter_test:

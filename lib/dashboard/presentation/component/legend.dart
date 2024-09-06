@@ -17,12 +17,12 @@ class Legend extends StatelessWidget {
             style: context.textStyle.bodyText1,
           ),
           const SizedBox(height: 20),
-          LegendItem(color: ButtonColorBasedOnWinner.wala.color, label: 'Wala'),
+          LegendItem(color: ButtonColorBasedOnWinner.wala.mainColor, label: 'Wala'),
           LegendItem(
-              color: ButtonColorBasedOnWinner.meron.color, label: 'Meron'),
-          LegendItem(color: ButtonColorBasedOnWinner.draw.color, label: 'Draw'),
+              color: ButtonColorBasedOnWinner.meron.mainColor, label: 'Meron'),
+          LegendItem(color: ButtonColorBasedOnWinner.draw.mainColor, label: 'Draw'),
           LegendItem(
-              color: ButtonColorBasedOnWinner.ongoing.color, label: 'Ongoing'),
+              color: ButtonColorBasedOnWinner.ongoing.mainColor, label: 'Ongoing'),
         ],
       ),
     );

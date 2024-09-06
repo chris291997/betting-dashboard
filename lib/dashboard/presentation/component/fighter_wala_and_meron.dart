@@ -31,31 +31,19 @@ class FighterWalaAndMeron extends StatelessWidget {
                   if (isOngoing) ...[
                     Expanded(
                       child: FighterDetailsCard(
-                        fighterType: FighterType.wala,
-                        totalBet: selectedOutput.totalWalaBet,
-                        betMultiplier: selectedOutput.walaMultiplier,
-                        fightResult: FightResult.ongoing,
-                        // fightResult: isDraw
-                        //     ? FightResult.draw
-                        //     : winner == 'Wala'
-                        //         ? FightResult.winner
-                        //         : winner == 'Meron'
-                        //             ? FightResult.loser
-                        //             : FightResult.ongoing,
+                        fighterType: FighterType.meron,
+                        totalBet: selectedOutput.totalMeronBet,
+                        betMultiplier: selectedOutput.meronMultiplier,
+                        isConcluded: false,
                       ),
                     ),
                     Expanded(
                       child: FighterDetailsCard(
-                        fighterType: FighterType.meron,
-                        totalBet: selectedOutput.totalMeronBet,
-                        betMultiplier: selectedOutput.meronMultiplier,
-                        // fightResult: isDraw
-                        //     ? FightResult.draw
-                        //     : winner == 'Meron'
-                        //         ? FightResult.winner
-                        //         : winner == 'Wala'
-                        //             ? FightResult.loser
-                        //             : FightResult.ongoing,
+                        fighterType: FighterType.wala,
+                        totalBet: selectedOutput.totalWalaBet,
+                        betMultiplier: selectedOutput.walaMultiplier,
+                        fightResult: FightResult.ongoing,
+                        isConcluded: false,
                       ),
                     ),
                   ] else ...[
@@ -63,22 +51,31 @@ class FighterWalaAndMeron extends StatelessWidget {
                       Expanded(
                         child: Card(
                           child: Container(
-                            color: ButtonColorBasedOnWinner.draw.color,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Container(
-                                  color: const Color(0xFF505050),
-                                  height: 80,
-                                  child: Center(
-                                    child: Text(
-                                      'Draw',
-                                      style: context.textStyle.headline2,
-                                    ),
-                                  ),
+                            color: ButtonColorBasedOnWinner.draw.mainColor,
+                            child: Center(
+                              child: Text(
+                                'DRAW',
+                                style: context.textStyle.headline1.copyWith(
+                                  fontSize: 250,
                                 ),
-                              ],
+                              ),
                             ),
+                            // child: Column(
+                            //   mainAxisAlignment: MainAxisAlignment.start,
+                            //   children: [
+                            //     Container(
+                            //       color:
+                            //           ButtonColorBasedOnWinner.draw.mainColor,
+                            //       height: 80,
+                            //       child: Center(
+                            //         child: Text(
+                            //           'Draw',
+                            //           style: context.textStyle.headline2,
+                            //         ),
+                            //       ),
+                            //     ),
+                            //   ],
+                            // ),
                           ),
                         ),
                       )
@@ -88,6 +85,7 @@ class FighterWalaAndMeron extends StatelessWidget {
                           fighterType: FighterType.wala,
                           totalBet: selectedOutput.totalWalaBet,
                           betMultiplier: selectedOutput.walaMultiplier,
+                          isConcluded: true,
                         ),
                       )
                     else if (winner == 'Meron')
@@ -96,6 +94,7 @@ class FighterWalaAndMeron extends StatelessWidget {
                           fighterType: FighterType.meron,
                           totalBet: selectedOutput.totalMeronBet,
                           betMultiplier: selectedOutput.meronMultiplier,
+                          isConcluded: true,
                         ),
                       ),
                   ],

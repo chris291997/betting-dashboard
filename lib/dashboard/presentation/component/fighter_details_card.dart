@@ -1,3 +1,4 @@
+import 'package:dashboard/common/helper/extension/data_type.dart';
 import 'package:dashboard/common/theme/theme.dart';
 import 'package:dashboard/dashboard/presentation/component/fight_item.dart';
 import 'package:dashboard/fighter/data/di/fighter_service_locator.dart';
@@ -10,53 +11,31 @@ class FighterDetailsCard extends StatelessWidget {
     required this.totalBet,
     required this.betMultiplier,
     this.fightResult = FightResult.draw,
+    required this.isConcluded,
   });
 
   final double totalBet;
   final double betMultiplier;
   final FighterType fighterType;
   final FightResult fightResult;
+  final bool isConcluded;
 
   @override
   Widget build(BuildContext context) {
     return Card(
       child: Container(
         color: fighterType.isMeron
-            ? ButtonColorBasedOnWinner.meron.color
-            : ButtonColorBasedOnWinner.wala.color,
-        // color: fighterType.isMeron
-        //     ? const Color(0xFF98FB98)
-        //     : const Color(0xFFFFA07A),
-        // constraints: const BoxConstraints(
-        //   maxHeight: 800,
-        // ),
+            ? ButtonColorBasedOnWinner.meron.mainColor
+            : ButtonColorBasedOnWinner.wala.mainColor,
         child: Column(
           children: [
-            Container(
-              // color: fighterType.isMeron
-              //     ? const Color(0xFF32CD32)
-              //     : const Color(0xFFFF4500),
-              color: fighterType.isMeron
-                  ? const Color(0xFF228B22)
-                  : const Color(0xFFCC3700),
-              height: 80,
-              child: Center(
-                child: Text(
-                  fighterType.name.toUpperCase(),
-                  style: context.textStyle.headline2,
-                ),
-              ),
-            ),
-            // _Avatar(
-            //   fighterType: fighterType,
-            //   fightResult: fightResult,
-            // ),
             Expanded(
               child: Center(
                 child: _Details(
                   totalBet: totalBet,
                   fighterType: fighterType,
                   betMultiplier: betMultiplier,
+                  isConcluded: isConcluded,
                 ),
               ),
             ),
@@ -127,29 +106,49 @@ class _Details extends StatelessWidget {
     required this.fighterType,
     required this.totalBet,
     required this.betMultiplier,
+    required this.isConcluded,
   });
 
   final FighterType fighterType;
   final double totalBet;
   final double betMultiplier;
+  final bool isConcluded;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        // Text(
-        //   fighterType.name.toUpperCase(),
-        //   style: context.textStyle.headline2,
+        // Row(
+        //   children: [
+        //     Expanded(
+        //       child: AutoSizeText(
+        //         fighterType.name.toUpperCase(),
+        //         style: context.textStyle.headline1.copyWith(
+        //             // fontSize: 250,
+        //             ),
+        //         maxFontSize: double.infinity,
+        //       ),
+        //     ),
+        //   ],
         // ),
         Text(
-          '₱ ${totalBet.toString()}',
-          style: context.textStyle.headline1,
+          fighterType.name.toUpperCase(),
+          style: context.textStyle.headline1.copyWith(
+            fontSize: isConcluded ? 300 : 200,
+          ),
+          overflow: TextOverflow.ellipsis,
         ),
-        Text(
-          betMultiplier.toStringAsFixed(2),
-          style: context.textStyle.headline2,
-        ),
+        if (!isConcluded) ...[
+          Text(
+            '₱ ${totalBet.toCurrency().toString()}',
+            style: context.textStyle.headline1,
+          ),
+          Text(
+            betMultiplier.toStringAsFixed(2),
+            style: context.textStyle.headline2,
+          ),
+        ]
       ],
     );
   }

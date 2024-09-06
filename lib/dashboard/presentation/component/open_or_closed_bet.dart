@@ -15,10 +15,11 @@ class OpenOrClosedBet extends StatelessWidget {
       builder: (context, status) {
         return SizedBox(
           width: 200,
+          height: 80,
           child: Center(
             child: Text(
               status,
-              style: context.textStyle.headline5,
+              style: context.textStyle.headline4,
             ),
           ),
         );

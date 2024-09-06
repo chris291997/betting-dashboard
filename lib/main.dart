@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> {
       routerConfig: router,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: AppColors.dark().background,
+        // scaffoldBackgroundColor: AppColors.dark().background,
         // primaryColor: AppColors.dark().primary,
         // colorScheme: ColorScheme.dark(
         //   primary: AppColors.dark().primary,

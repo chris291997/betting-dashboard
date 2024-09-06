@@ -22,7 +22,7 @@ class FightItem extends StatelessWidget {
       child: Container(
         width: isSelected ? 90 : 60,
         height: isSelected ? 90 : 60,
-        color: buttonColorBasedOnWinner.color,
+        color: buttonColorBasedOnWinner.mainColor,
         child: Center(
           child: Text(
             fightNumber,
@@ -42,16 +42,29 @@ enum ButtonColorBasedOnWinner {
   draw,
   ongoing;
 
-  Color get color {
+  Color get mainColor {
     switch (this) {
       case ButtonColorBasedOnWinner.wala:
         return const Color(0xFFFF4500);
       case ButtonColorBasedOnWinner.meron:
-        return const Color(0xFF32CD32);
+        return const Color(0xFF1E90FF);
       case ButtonColorBasedOnWinner.draw:
         return const Color(0xFF808080);
       case ButtonColorBasedOnWinner.ongoing:
-        return const Color(0xFF3A5374);
+        return const Color(0xFF5A7394); // Updated lighter color
+    }
+  }
+
+  Color get lightColor {
+    switch (this) {
+      case ButtonColorBasedOnWinner.wala:
+        return const Color(0xFFFF7F7F); // Lighter orange-red
+      case ButtonColorBasedOnWinner.meron:
+        return const Color(0xFF87CEFA); // Lighter green
+      case ButtonColorBasedOnWinner.draw:
+        return const Color(0xFFD3D3D3); // Lighter gray
+      case ButtonColorBasedOnWinner.ongoing:
+        return const Color(0xFF5A7394); // Much lighter blue-gray
     }
   }
 }

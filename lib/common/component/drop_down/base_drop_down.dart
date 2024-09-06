@@ -193,9 +193,7 @@ class EnabledDropdown<T> extends StatelessWidget {
         decoration: buttonDecoration ??
             BoxDecoration(
               borderRadius: BorderRadius.circular(14),
-              border: Border.all(
-                color: Colors.white,
-              ),
+              border: Border.all(),
             ),
         elevation: buttonElevation,
       ),
@@ -212,7 +210,7 @@ class EnabledDropdown<T> extends StatelessWidget {
         decoration: dropdownDecoration ??
             BoxDecoration(
               borderRadius: BorderRadius.circular(14),
-              color: const Color(0xFF3A5374),
+              // color: const Color(0xFF3A5374),
             ),
         elevation: dropdownElevation ?? 8,
         offset: offset,
