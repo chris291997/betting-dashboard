@@ -15,13 +15,13 @@ class FightNumber extends StatelessWidget {
       builder: (context, fightNumber) {
         return Container(
           width: 300,
-          height: 80,
+          height: 120,
           color: context.colors.primary,
           child: Center(
             child: Text(
               'Fight # ${fightNumber.toString()}',
               overflow: TextOverflow.ellipsis,
-              style: context.textStyle.headline4,
+              style: context.textStyle.headline2,
             ),
           ),
         );

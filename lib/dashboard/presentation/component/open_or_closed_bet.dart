@@ -19,7 +19,7 @@ class OpenOrClosedBet extends StatelessWidget {
           child: Center(
             child: Text(
               status,
-              style: context.textStyle.headline4,
+              style: context.textStyle.headline2,
             ),
           ),
         );

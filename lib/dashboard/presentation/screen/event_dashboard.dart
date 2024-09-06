@@ -101,7 +101,7 @@ class _Dashboard extends HookWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           SizedBox(
-                            height: 80,
+                            height: 120,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [

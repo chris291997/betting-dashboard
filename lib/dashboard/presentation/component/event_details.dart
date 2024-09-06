@@ -16,13 +16,13 @@ class EventDetails extends StatelessWidget {
       },
       builder: (context, event) {
         return Container(
-          height: 80,
+          height: 120,
           width: double.infinity,
           color: ButtonColorBasedOnWinner.ongoing.mainColor,
           child: Center(
             child: Text(
               '${event.eventName}, ${event.location}',
-              style: context.textStyle.headline4,
+              style: context.textStyle.headline2,
             ),
           ),
         );
