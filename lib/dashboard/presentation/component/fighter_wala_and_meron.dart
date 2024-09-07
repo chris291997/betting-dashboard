@@ -60,22 +60,6 @@ class FighterWalaAndMeron extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            // child: Column(
-                            //   mainAxisAlignment: MainAxisAlignment.start,
-                            //   children: [
-                            //     Container(
-                            //       color:
-                            //           ButtonColorBasedOnWinner.draw.mainColor,
-                            //       height: 80,
-                            //       child: Center(
-                            //         child: Text(
-                            //           'Draw',
-                            //           style: context.textStyle.headline2,
-                            //         ),
-                            //       ),
-                            //     ),
-                            //   ],
-                            // ),
                           ),
                         ),
                       )
@@ -100,13 +84,6 @@ class FighterWalaAndMeron extends StatelessWidget {
                   ],
                 ],
               ),
-              // Center(
-              //   child: Image.asset(
-              //     _vsIcon,
-              //     fit: BoxFit.contain,
-              //     height: 100,
-              //   ),
-              // )
             ],
           ),
         );

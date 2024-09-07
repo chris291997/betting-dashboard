@@ -46,61 +46,6 @@ class FighterDetailsCard extends StatelessWidget {
   }
 }
 
-// class _Avatar extends StatelessWidget {
-//   const _Avatar({
-//     required this.fighterType,
-//     required this.fightResult,
-//   });
-
-//   final FighterType fighterType;
-//   final FightResult fightResult;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Padding(
-//       padding: const EdgeInsets.all(30.0),
-//       child: Container(
-//         width: 400,
-//         height: 400,
-//         padding: const EdgeInsets.all(30),
-//         decoration: BoxDecoration(
-//           color: fighterType.isMeron
-//               ? const Color(0xFF98FB98)
-//               : const Color(0xFFFFA07A),
-//           borderRadius: BorderRadius.circular(30), // Rounded corners
-//         ),
-//         child: Stack(
-//           children: [
-//             AnimatedOpacity(
-//               duration: const Duration(milliseconds: 500),
-//               opacity: fightResult.isOngoing ? 1.0 : 0.4,
-//               child: SvgPicture.asset(
-//                 fighterType.icon,
-//                 fit: BoxFit.contain,
-//               ),
-//             ),
-//             if (!fightResult.isOngoing)
-//               Center(
-//                 child: ColorFiltered(
-//                   colorFilter: const ColorFilter.mode(
-//                     Colors.black,
-//                     BlendMode.srcIn,
-//                   ),
-//                   child: Image.asset(
-//                     fightResult.iconUrl,
-//                     fit: BoxFit.contain,
-//                     width: fightResult.isDraw ? 300 : 400,
-//                     height: fightResult.isDraw ? 150 : 200,
-//                   ),
-//                 ),
-//               )
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-
 class _Details extends StatelessWidget {
   const _Details({
     required this.fighterType,
@@ -119,19 +64,6 @@ class _Details extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        // Row(
-        //   children: [
-        //     Expanded(
-        //       child: AutoSizeText(
-        //         fighterType.name.toUpperCase(),
-        //         style: context.textStyle.headline1.copyWith(
-        //             // fontSize: 250,
-        //             ),
-        //         maxFontSize: double.infinity,
-        //       ),
-        //     ),
-        //   ],
-        // ),
         Text(
           fighterType.name.toUpperCase(),
           style: context.textStyle.headline1.copyWith(
