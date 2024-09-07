@@ -89,7 +89,8 @@ class BetOutput extends Equatable {
 
   bool get isNotEmpty => this != const BetOutput.empty();
 
-  bool get isClaimable => betOn.id == fight.winnerId && winnings > 0 && !isClaimed;
+  bool get isClaimable =>
+      betOn.id == fight.winnerId && winnings > 0 && !isClaimed;
 
   @override
   List<Object?> get props => [
@@ -108,22 +109,4 @@ class BetOutput extends Equatable {
         createdAt,
         updatedAt,
       ];
-}
-
-extension BetOutputMapper on BetOutput {
-  ReceiptDetails toReceiptDetails() {
-    return ReceiptDetails(
-      transactionId: transactionId,
-      eventName: event.eventName,
-      eventDate: event.eventDate?.toIso8601String(),
-      location: event.location,
-      fightNumber: fight.fightNumber,
-      betOnName: betOn.name,
-      betAmount: betAmount,
-      posNumber: pos.posNumber,
-      userName: pos.user.username,
-      createdAt: createdAt?.toIso8601String() ?? '',
-      qrToken: qrToken,
-    );
-  }
 }

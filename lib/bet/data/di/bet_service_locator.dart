@@ -1,6 +1,5 @@
 import 'package:dashboard/common/di/service_locator.dart';
 import 'package:dashboard/common/helper/extension/json.dart';
-import 'package:dashboard/common/service/receipt_printer_service.dart';
 import 'package:dashboard/event/data/di/event_service_locator.dart';
 import 'package:dashboard/fight/data/di/fight_service_locator.dart';
 import 'package:dashboard/fighter/data/di/fighter_service_locator.dart';
