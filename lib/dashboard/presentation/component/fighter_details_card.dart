@@ -61,27 +61,38 @@ class _Details extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          fighterType.name.toUpperCase(),
-          style: context.textStyle.headline1.copyWith(
-            fontSize: isConcluded ? 300 : 200,
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 50),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          // Use FittedBox to add dynamic text size
+          // Requested by client
+          FittedBox(
+            child: Text(
+              fighterType.name.toUpperCase(),
+              style: context.textStyle.headline1.copyWith(
+                fontSize: isConcluded ? 300 : 200,
+              ),
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
-          overflow: TextOverflow.ellipsis,
-        ),
-        if (!isConcluded) ...[
-          Text(
-            '₱ ${totalBet.toCurrency().toString()}',
-            style: context.textStyle.headline1,
-          ),
-          Text(
-            betMultiplier.toStringAsFixed(2),
-            style: context.textStyle.headline2,
-          ),
-        ]
-      ],
+          if (!isConcluded) ...[
+            FittedBox(
+              child: Text(
+                '₱ ${totalBet.toCurrency().toString()}',
+                style: context.textStyle.headline1,
+              ),
+            ),
+            FittedBox(
+              child: Text(
+                betMultiplier.toStringAsFixed(2),
+                style: context.textStyle.headline2,
+              ),
+            ),
+          ]
+        ],
+      ),
     );
   }
 }
